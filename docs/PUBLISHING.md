@@ -3,7 +3,7 @@
 ## 0. Preflight
 
 1. Read `ASSET_PROVENANCE.md` and `LICENSE`.
-2. Inspect the project files and decide if you want the demo GIF public before the first live workflow run. It has a `DEMO DATA` watermark.
+2. The bundled demo GIF uses invented figures and is stamped `DEMO DATA`. This repository's demo output was replaced by the successful live run on 2026-11-09.
 3. Never publish `.venv`, `.env`, `snapshot.json`, tokens, keys, or other private files.
 4. Run `RUN_TESTS.bat` and then `RUN_DEMO.bat` locally. Optionally test `RUN_LIVE.bat` to verify the actual GraphQL API connection.
 
@@ -21,7 +21,7 @@ Make sure the login is the account you intend to publish from.
 
 ## 2. Initialize the **separate** GitRex repository
 
-The published repository is `narayanangourav/GitRex` on the `master` branch. When continuing this existing checkout, keep using that repository and branch; do not initialize another repository or create a duplicate. These commands are only for a new, separate project folder:
+The published repository is public at `narayanangourav/GitRex` on the `master` branch. When continuing this existing checkout, keep using that repository and branch; do not initialize another repository or create a duplicate. These commands are only for a new, separate project folder:
 
 Open PowerShell inside the extracted project folder:
 
@@ -44,11 +44,11 @@ gh repo create narayanangourav/GitRex --public --source=. --remote=origin --push
 
 ## 3. Enable scheduled output generation
 
-Navigate to `GitRex` → `Settings` → `Actions` → `General` → `Workflow permissions`. Permit the workflow to write repository content if it needs to commit new GIFs. The workflow is limited to `contents: write` and does not require a personal token in repository secrets. **Consider branch protections, organization policy and least privileges before enabling writes.**
+The workflow declares only `contents: write` in its YAML and commits generated files with the built-in `GITHUB_TOKEN`; the repository-wide default remains read-only. This least-privilege setup completed the first live run successfully. If an organization policy blocks the workflow's explicit permission, adjust only the permission required to write the generated files.
 
 Run `Actions` → `GitRex profile evolution` → `Run workflow` on `master`.
 
-Check that the render job successfully executes and changes `output/trex.gif`, `output/trex.png` and `output/summary.json` to your real public activity. The workflow is scheduled nightly and may be delayed or disabled after inactivity by GitHub.
+The first render succeeded on 2026-11-09, collected 181 contributions for `narayanangourav`, and committed the live GIF, PNG, preview and summary as `152071d`. Future runs are scheduled nightly and may be delayed or disabled after inactivity by GitHub.
 
 ## 4. Embed the animation in your profile
 

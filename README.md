@@ -4,9 +4,9 @@
 
 > **Version 2.0.0** · Python 3.10+ · MIT · Offline preview · GitHub Actions · No paid server required
 
-![GitRex demonstration animation](output/trex.gif)
+![GitRex live contribution animation](output/trex.gif)
 
-**Note:** The above is a **synthetic demonstration** and is intentionally stamped `DEMO DATA`. Run live collection to show your own contributions.
+**Note:** This animation reflects the latest successful live run from GitHub's public contribution calendar; it is not a raw count of all commits. The [workflow history](https://github.com/narayanangourav/GitRex/actions/workflows/gitrex.yml) shows when it last updated.
 
 ## Try it without installing anything
 
@@ -67,7 +67,7 @@ This project is designed for **a separate `GitRex` repository**. The daily workf
 ![My contribution-powered T-Rex](https://raw.githubusercontent.com/narayanangourav/GitRex/master/output/trex.gif)
 ```
 
-See **[docs/PUBLISHING.md](docs/PUBLISHING.md)** for copyright checks, Git setup, secure Actions settings and first-live-run verification. The workflow has not been run on your actual GitHub account from this environment.
+See **[docs/PUBLISHING.md](docs/PUBLISHING.md)** for copyright checks, Git setup, secure Actions settings and profile integration. The first live workflow run succeeded and committed the current output files to `master`.
 
 ## Growth rules
 
