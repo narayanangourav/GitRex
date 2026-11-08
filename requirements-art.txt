@@ -1,0 +1,5 @@
+# Optional: only for regenerating the realistic illustrated layers
+# using the bundled original AI-generated scene source.
+-r requirements.txt
+numpy>=2.0,<3
+opencv-python>=4.10,<5

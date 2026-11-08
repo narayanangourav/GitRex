@@ -1,0 +1,39 @@
+GITREX 2.0 - ORIGINAL ARTWORK RELEASE
+==================================
+
+FAST OFFLINE TEST (NO INSTALLATION)
+1. Extract this ZIP into a real folder on your Windows PC.
+2. Double-click OPEN_PREVIEW.html. Use the slider to grow the T-Rex.
+3. Open output\preview.html to see the pre-rendered DEMO GIF.
+
+CREATE FRESH DEMO OUTPUT
+Install Python 3.10 or later and double-click RUN_DEMO.bat.
+The launcher creates .venv and installs Pillow.
+
+USE LIVE GITHUB ACTIVITY
+Install Python and GitHub CLI (https://cli.github.com/).
+Run `gh auth login` in PowerShell.
+Then double-click RUN_LIVE.bat and choose your username.
+The workflow uses real GitHub GraphQL data; the built-in demo does not.
+
+REGENERATE THE ORIGINAL ARTWORK
+The default realistic T-Rex comes from a NEW, AI-generated GitRex illustration
+included as assets\ai_generated_scene_source.png. No user-uploaded reference
+photo or extracted copy of any website artwork is included.
+
+Optional regeneration of the realistic sprite and forest:
+  python -m pip install -r requirements-art.txt
+  python tools\prepare_illustration.py
+
+An alternative fully procedural T-Rex and forest are included too:
+  python tools\generate_procedural_art.py
+
+HOW TO PUBLISH
+Read docs\PUBLISHING.md and ASSET_PROVENANCE.md before making public.
+The GitHub Action requires a successful live workflow run.
+
+LIMITATIONS
+- Sample GIF, PNG and counts are DEMO DATA, not your live account.
+- Motion is whole-body breathing/sway and subtle bounce, not articulated 3D.
+- AI-generated artwork is newly produced but NOT guaranteed risk-free or exclusive.
+- We could not test live GitHub authentication in this offline environment.
