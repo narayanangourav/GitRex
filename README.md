@@ -1,12 +1,12 @@
 # GitRex 🦖
 
-**Your GitHub activity grows a T-Rex.** An independently implemented Python renderer that transforms GitHub contribution-calendar data into an animated GIF for a profile README. This release ships new **AI-generated, original-to-this-project dinosaur and forest illustrations**, plus a separately authored **fully procedural** asset set. No images from the earlier user-uploaded T-Rex photo are bundled.
+**A T-Rex evolves through five levels.** GitRex creates an animated level roadmap for a profile README. This release ships new **AI-generated, original-to-this-project dinosaur and forest illustrations**, plus a separately authored **fully procedural** asset set. No images from the earlier user-uploaded T-Rex photo are bundled.
 
 > **Version 2.0.0** · Python 3.10+ · MIT · Offline preview · GitHub Actions · No paid server required
 
-![GitRex live contribution animation](output/trex.gif)
+<img src="output/trex.gif" alt="GitRex level evolution from Hatchling to Apex Rex" width="100%">
 
-**Note:** This animation reflects the latest successful live run from GitHub's public contribution calendar; it is not a raw count of all commits. The [workflow history](https://github.com/narayanangourav/GitRex/actions/workflows/gitrex.yml) shows when it last updated.
+**Note:** This animation reflects the current level from the latest successful update. It displays completed levels, the current level, and the next stage.
 
 ## Try it without installing anything
 
@@ -34,7 +34,7 @@ $env:PYTHONPATH = "src"
 1. Install [GitHub CLI](https://cli.github.com/) and Python 3.10+.
 2. Run `gh auth login` in PowerShell. Do **not** write tokens into `.env` files or commit them.
 3. Double-click `RUN_LIVE.bat`; enter your public GitHub login.
-4. Review `output/summary.json` and the GIF. Live collection fails rather than silently falling back to demo figures.
+4. Review the level roadmap in `output/summary.json` and the GIF. Live collection fails rather than silently falling back to demo figures.
 
 PowerShell alternative after setting up Python:
 
@@ -55,7 +55,7 @@ $env:GH_TOKEN = gh auth token
 Remove-Item Env:GH_TOKEN
 ```
 
-`snapshot.json` is ignored in Git because it may contain personally identifiable activity metadata. The published `output/summary.json` contains only public-facing counts, the login, stage and inferred traits.
+`snapshot.json` is ignored in Git because it may contain account activity details. The published `output/summary.json` contains only the level roadmap, stage descriptions, and current/next markers.
 
 ## GitHub profile integration
 
@@ -64,22 +64,22 @@ This project is designed for **a separate `GitRex` repository**. The daily workf
 ```markdown
 ## My GitRex
 
-![My contribution-powered T-Rex](https://raw.githubusercontent.com/narayanangourav/GitRex/master/output/trex.gif)
+<img src="https://raw.githubusercontent.com/narayanangourav/GitRex/master/output/trex.gif" alt="GitRex level evolution" width="100%">
 ```
 
 See **[docs/PUBLISHING.md](docs/PUBLISHING.md)** for copyright checks, Git setup, secure Actions settings and profile integration. The first live workflow run succeeded and committed the current output files to `master`.
 
 ## Growth rules
 
-| Contributions | Stage |
-|---:|---|
-| 0–49 | Hatchling |
-| 50–199 | Juvenile |
-| 200–499 | Subadult |
-| 500–999 | Adult |
-| 1000+ | Apex Rex |
+| Level | Stage | Description |
+|---:|---|---|
+| 0 | Hatchling | Beginning the journey |
+| 1 | Juvenile | Growing stronger |
+| 2 | Subadult | Building experience |
+| 3 | Adult | A mature, steady stage |
+| 4 | Apex Rex | The highest evolution |
 
-Each contribution increases the scale until the 1000-contribution cap. The source is GitHub's GraphQL **contribution calendar**, **not a raw count of all commits**; it can include issues, pull requests, reviews, and more. A separate commit-contribution total is included for reference. Some GitHub contributions may not be counted by GitHub because of branch, author, and attribution rules.
+The roadmap marks earlier stages as complete, highlights the current stage, and labels the next stage as the future goal. Level numbers start at 0.
 
 Yesterday's completed UTC-day activity selects the motion mode (`idle`, `walk`, `roar`). All modes use light body movement and breathing of the same illustrated sprite. **This release does not have individually animated limbs or a moving jaw.** The top language is derived approximately from public owned repositories.
 

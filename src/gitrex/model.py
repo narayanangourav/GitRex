@@ -1,11 +1,24 @@
 """Pure, deterministic progression logic. No network or filesystem I/O."""
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from datetime import date, timedelta
 from math import sqrt
 
-LEVELS = ((0, 'Hatchling'), (50, 'Juvenile'), (200, 'Subadult'), (500, 'Adult'), (1000, 'Apex Rex'))
+@dataclass(frozen=True)
+class Level:
+    threshold: int
+    name: str
+    description: str
+
+
+LEVELS = (
+    Level(0, 'Hatchling', 'Beginning the journey'),
+    Level(50, 'Juvenile', 'Growing stronger'),
+    Level(200, 'Subadult', 'Building experience'),
+    Level(500, 'Adult', 'A mature, steady stage'),
+    Level(1000, 'Apex Rex', 'The highest evolution'),
+)
 
 
 @dataclass(frozen=True)
@@ -24,10 +37,6 @@ class RexState:
     dominant_language: str
     language_color: str
     as_of: str
-
-    def to_dict(self) -> dict:
-        return asdict(self)
-
 
 def validate_snapshot(data: dict) -> None:
     if not isinstance(data, dict) or not isinstance(data.get('login'), str) or not data['login'].strip():
@@ -67,10 +76,10 @@ def derive(data: dict) -> RexState:
     as_of = data['as_of']
     daily = {d: v for d, v in data['daily'].items() if d <= as_of}
     count = sum(daily.values())
-    level = max(i for i, (start, _) in enumerate(LEVELS) if count >= start)
-    base, stage = LEVELS[level]
-    next_threshold = LEVELS[level+1][0] if level + 1 < len(LEVELS) else None
-    progress = min(1.0, (count - base) / (next_threshold - base)) if next_threshold else 1.0
+    level_index = max(i for i, level in enumerate(LEVELS) if count >= level.threshold)
+    current_level = LEVELS[level_index]
+    next_threshold = LEVELS[level_index+1].threshold if level_index + 1 < len(LEVELS) else None
+    progress = min(1.0, (count - current_level.threshold) / (next_threshold - current_level.threshold)) if next_threshold else 1.0
     # Smooth growth: EVERY contribution changes size (up to the natural maximum).
     scale = min(1.0, 0.52 + 0.48 * sqrt(min(count, 1000) / 1000.0))
     current, longest = streaks(daily, as_of)
@@ -83,7 +92,7 @@ def derive(data: dict) -> RexState:
         raise ValueError('commits must be a nonnegative integer or null')
     return RexState(
         login=data['login'], contributions=count, commits=commits,
-        stage=stage, level=level+1, progress=progress, scale=scale,
+        stage=current_level.name, level=level_index, progress=progress, scale=scale,
         streak=current, longest_streak=longest, yesterday=recent,
         behavior=behavior, dominant_language=str(language.get('name','Unknown')),
         language_color=str(language.get('color') or '#c8a67a'), as_of=as_of,

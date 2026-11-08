@@ -26,7 +26,7 @@ def main(argv=None):
     render_p=sub.add_parser('render',help='Render existing snapshot JSON')
     for p in (demo,live,render_p):
         p.add_argument('--output-dir',default='output')
-        p.add_argument('--width',type=int,default=720)
+        p.add_argument('--width',type=int,default=1200)
         p.add_argument('--frames',type=int,default=12)
     for p in (live,collect_p):
         p.add_argument('--login',default=os.environ.get('GITREX_LOGIN','narayanangourav'))
@@ -49,8 +49,7 @@ def main(argv=None):
         if args.command=='live':
             # Publication requires a fully successful live render; no demo fallback.
             _atomic_write(Path(args.output_dir)/'snapshot.json',snap)
-        print(f'GitRex: @{snap["login"]} | {result["state"]["stage"]} | '
-              f'{result["state"]["contributions"]} contributions')
+        print(f'GitRex: Level {result["state"]["level"]} · {result["state"]["stage"]}')
         print('GIF:',result['gif'],'(',round(result['size_bytes']/1024/1024,2),'MiB )')
         print('Preview:',result['preview'])
         return 0

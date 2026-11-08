@@ -3,7 +3,7 @@
 ## 0. Preflight
 
 1. Read `ASSET_PROVENANCE.md` and `LICENSE`.
-2. The bundled demo GIF uses invented figures and is stamped `DEMO DATA`. This repository's demo output was replaced by the successful live run on 2026-11-09.
+2. The bundled demo GIF uses invented figures and is stamped `DEMO DATA`.
 3. Never publish `.venv`, `.env`, `snapshot.json`, tokens, keys, or other private files.
 4. Run `RUN_TESTS.bat` and then `RUN_DEMO.bat` locally. Optionally test `RUN_LIVE.bat` to verify the actual GraphQL API connection.
 
@@ -48,18 +48,16 @@ The workflow declares only `contents: write` in its YAML and commits generated f
 
 Run `Actions` → `GitRex profile evolution` → `Run workflow` on `master`.
 
-The first render succeeded on 2026-11-09, collected 181 contributions for `narayanangourav`, and committed the live GIF, PNG, preview and summary as `152071d`. Future runs are scheduled nightly and may be delayed or disabled after inactivity by GitHub.
+After a successful run, the workflow commits the updated GIF, PNG, preview, and level summary. Future runs are scheduled nightly and may be delayed or disabled after inactivity by GitHub.
 
 ## 4. Embed the animation in your profile
 
 After the first successful live workflow run, add the animation to the separate **profile** repository called `narayanangourav/narayanangourav`. Append this section to its existing `README.md`; preserve the other profile content:
 
 ```markdown
-## 🦖 My GitRex
+## 🦖 GitRex Evolution
 
-![GitRex evolution](https://raw.githubusercontent.com/narayanangourav/GitRex/master/output/trex.gif)
-
-[Source](https://github.com/narayanangourav/GitRex)
+<img src="https://raw.githubusercontent.com/narayanangourav/GitRex/master/output/trex.gif" alt="GitRex level evolution" width="100%">
 ```
 
 Verify the GIF loads on `https://github.com/narayanangourav`. Do not claim it shows your live figures until the first successful workflow run.

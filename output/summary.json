@@ -1,18 +1,45 @@
 {
-  "schema_version": 1,
-  "mode": "live-or-imported",
-  "login": "narayanangourav",
-  "contributions": 181,
-  "commits": 159,
-  "stage": "Juvenile",
-  "level": 2,
-  "progress": 0.8733333333333333,
-  "scale": 0.7242116549073534,
-  "streak": 0,
-  "longest_streak": 3,
-  "yesterday": 0,
-  "behavior": "idle",
-  "dominant_language": "CSS",
-  "language_color": "#c8a67a",
-  "as_of": "2026-11-07"
+  "schema_version": 2,
+  "current": {
+    "level": 1,
+    "stage": "Juvenile",
+    "description": "Growing stronger"
+  },
+  "next": {
+    "level": 2,
+    "stage": "Subadult",
+    "description": "Building experience"
+  },
+  "levels": [
+    {
+      "level": 0,
+      "stage": "Hatchling",
+      "description": "Beginning the journey",
+      "status": "complete"
+    },
+    {
+      "level": 1,
+      "stage": "Juvenile",
+      "description": "Growing stronger",
+      "status": "current"
+    },
+    {
+      "level": 2,
+      "stage": "Subadult",
+      "description": "Building experience",
+      "status": "next"
+    },
+    {
+      "level": 3,
+      "stage": "Adult",
+      "description": "A mature, steady stage",
+      "status": "future"
+    },
+    {
+      "level": 4,
+      "stage": "Apex Rex",
+      "description": "The highest evolution",
+      "status": "future"
+    }
+  ]
 }
