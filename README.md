@@ -116,5 +116,3 @@ GitRex/
 - GitHub Actions schedules are not guaranteed to run at exact times.
 - Internet and authenticated GitHub API access are required for **live** operation; this could not be tested here.
 - Read [ASSET_PROVENANCE.md](ASSET_PROVENANCE.md) before publishing. The primary illustrated art comes from a newly AI-generated GitRex image bundled in the package. A separate fully procedural art set is also included. Newly generated artwork cannot be guaranteed legally exclusive or free of resemblance claims.
-
-\n

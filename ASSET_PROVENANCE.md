@@ -34,5 +34,3 @@ This only uses an AI-generated source image **already bundled in the repo**. It 
 ## Intellectual-property note
 
 This release contains newly generated or procedurally authored assets, **not knowingly copied third-party files**. That reduces the risk from unclear image provenance, but no one can guarantee that generative artwork is legally exclusive, copyrightable in every jurisdiction, or free from all resemblance claims. Asset ownership and commercial-use rights may depend on the image-generation provider's terms and applicable law. The project license applies only to rights the distributing contributors actually have. Avoid names, logos or descriptions implying affiliation with film franchises.
-
-\n
