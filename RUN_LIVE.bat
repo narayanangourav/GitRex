@@ -4,8 +4,12 @@ cd /d "%~dp0"
 echo =========================================
 echo   GitRex - Real GitHub Contributions
  echo =========================================
+set "PY=python"
 where py >nul 2>&1
-if %errorlevel%==0 (set "PY=py -3") else (set "PY=python")
+if not errorlevel 1 (
+  py -3 --version >nul 2>&1
+  if not errorlevel 1 set "PY=py -3"
+)
 %PY% --version >nul 2>&1
 if errorlevel 1 (echo Install Python 3.10 or newer first. & pause & exit /b 1)
 if not exist .venv\Scripts\python.exe (%PY% -m venv .venv || (pause & exit /b 1))

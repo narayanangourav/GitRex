@@ -21,10 +21,12 @@ Make sure the login is the account you intend to publish from.
 
 ## 2. Initialize the **separate** GitRex repository
 
+The published repository is `narayanangourav/GitRex` on the `master` branch. When continuing this existing checkout, keep using that repository and branch; do not initialize another repository or create a duplicate. These commands are only for a new, separate project folder:
+
 Open PowerShell inside the extracted project folder:
 
 ```powershell
-git init -b main
+git init -b master
 git add .
 git diff --cached --name-only
 git diff --cached --check
@@ -44,18 +46,18 @@ gh repo create narayanangourav/GitRex --public --source=. --remote=origin --push
 
 Navigate to `GitRex` → `Settings` → `Actions` → `General` → `Workflow permissions`. Permit the workflow to write repository content if it needs to commit new GIFs. The workflow is limited to `contents: write` and does not require a personal token in repository secrets. **Consider branch protections, organization policy and least privileges before enabling writes.**
 
-Run `Actions` → `GitRex profile evolution` → `Run workflow` on `main`.
+Run `Actions` → `GitRex profile evolution` → `Run workflow` on `master`.
 
 Check that the render job successfully executes and changes `output/trex.gif`, `output/trex.png` and `output/summary.json` to your real public activity. The workflow is scheduled nightly and may be delayed or disabled after inactivity by GitHub.
 
 ## 4. Embed the animation in your profile
 
-In the separate **profile** repository called `narayanangourav/narayanangourav`, edit its `README.md`:
+After the first successful live workflow run, add the animation to the separate **profile** repository called `narayanangourav/narayanangourav`. Append this section to its existing `README.md`; preserve the other profile content:
 
 ```markdown
 ## 🦖 My GitRex
 
-![GitRex evolution](https://raw.githubusercontent.com/narayanangourav/GitRex/main/output/trex.gif)
+![GitRex evolution](https://raw.githubusercontent.com/narayanangourav/GitRex/master/output/trex.gif)
 
 [Source](https://github.com/narayanangourav/GitRex)
 ```
@@ -68,4 +70,4 @@ Verify the GIF loads on `https://github.com/narayanangourav`. Do not claim it sh
 - Enable Dependabot alerts and secret scanning if available.
 - Do not commit an authenticated snapshot or a token, even temporarily; removing them in a later commit does not remove them from Git history.
 - Read GitHub Actions billing and permissions settings before enabling optional resources.
-- Publish a GitHub release from the reviewed commit, not from an unverified ZIP containing demos.
+- Publish the `v2.0.0` GitHub release from the reviewed live-output commit, not from an unverified ZIP containing demos.

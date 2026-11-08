@@ -64,7 +64,7 @@ This project is designed for **a separate `GitRex` repository**. The daily workf
 ```markdown
 ## My GitRex
 
-![My contribution-powered T-Rex](https://raw.githubusercontent.com/narayanangourav/GitRex/main/output/trex.gif)
+![My contribution-powered T-Rex](https://raw.githubusercontent.com/narayanangourav/GitRex/master/output/trex.gif)
 ```
 
 See **[docs/PUBLISHING.md](docs/PUBLISHING.md)** for copyright checks, Git setup, secure Actions settings and first-live-run verification. The workflow has not been run on your actual GitHub account from this environment.
